@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { SettingsModal } from "./SettingsModal";
 import { FileText } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
@@ -10,7 +9,7 @@ export function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 h-16 border-b border-white/10 bg-zinc-950/50 backdrop-blur-md">
+    <nav className="fixed top-0 w-full h-16 border-b border-white/10 bg-zinc-950/50 backdrop-blur-md z-50">
       <div className="max-w-7xl mx-auto h-full px-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
           <div className="p-1.5 bg-blue-500/20 rounded-lg group-hover:bg-blue-500/30 transition-colors">
@@ -25,23 +24,21 @@ export function Navbar() {
           <Link 
             href="/" 
             className={cn(
-              "text-sm transition-colors hover:text-white", 
-              pathname === "/" ? "text-white font-medium" : "text-zinc-400"
+              "text-sm font-medium transition-colors hover:text-white",
+              pathname === "/" ? "text-white" : "text-zinc-400"
             )}
           >
-            Dashboard
+            Tracker
           </Link>
           <Link 
             href="/optimize" 
             className={cn(
-              "text-sm transition-colors hover:text-white", 
-              pathname === "/optimize" ? "text-white font-medium" : "text-zinc-400"
+              "text-sm font-medium transition-colors hover:text-white",
+              pathname === "/optimize" ? "text-white" : "text-zinc-400"
             )}
           >
             Fix My CV
           </Link>
-          <div className="h-4 w-px bg-white/10" />
-          <SettingsModal />
         </div>
       </div>
     </nav>
